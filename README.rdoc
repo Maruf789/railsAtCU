@@ -1,4 +1,4 @@
-Name: Ahmad Maruf <br/>       
+Name: Ahmad Maruf     
 UNI: aim2122      
 Meetup.com event info (which I RSVP'd):       
 Hosted by SQL NYC, The NoSQL & NewSQL Database Meetup group, on Tuesday, October 6, I'll be attending a FREE full-day 6-track NoSQL conference covering Big Data, Mobile, Operations, Architecture and Development with Couchbase!      
