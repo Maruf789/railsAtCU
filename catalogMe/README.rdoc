@@ -32,4 +32,4 @@ Homework 1 submission:
   * gem 'mongo', '2.1.0.beta'
   * gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 
-* BONUS: Created a page that displays “hello world” at /home
+* BONUS: Created a page that displays “hello world” at /home   (just go to http://localhost:3000)
