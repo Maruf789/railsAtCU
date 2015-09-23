@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post "login" => "session#create"
   get "logout" => "session#destroy", :as => "logout"
 
-  # get 'home/index'
+ # get 'home/index'
 
   resources :user_catalogs
   # The priority is based upon order of creation: first created -> highest priority.
