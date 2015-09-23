@@ -1,27 +1,37 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Information about me: 
+* Name: Ahmad Maruf
+* UNI: aim2122 
 
-Things you may want to cover:
+Homework 1 submission:
+* Name of app:  CatalogMe
 
-* Ruby version
+* Meetup.com event info (which I RSVP'd):
+  Hosted by SQL NYC, The NoSQL & NewSQL Database Meetup group, on Tuesday, October 6, I'll be attending a FREE full-day 6-track   NoSQL conference covering Big Data, Mobile, Operations, Architecture and Development with Couchbase! More information can be    found here: www.meetup.com/mysqlnyc/events/224790182/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Name of the Model: "UserCatalog". Schema for this model is the following:
+      class UserCatalog
+        include Mongoid::Document
+        field :username, type: String
+        field :firstname, type: String
+        field :lastname, type: String
+        field :email, type: String
+        field :age, type: Integer
+        field :favoritebook, type: String
+      end
+      
+* Versions I'm using:
+  * ruby 2.1.3
+  * Rails 4.2.2
+  * MongoDB shell version: 3.0.6
+  * rvm 1.25.33 
+  
+* Added the following gems --
+    * gem 'bson_ext'
+    * gem 'mongo', '2.1.0.beta'
+    * gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
+    
 
 
 Please feel free to use a different markup language if you do not plan to run
