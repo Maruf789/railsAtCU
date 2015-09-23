@@ -28,11 +28,8 @@ Homework 1 submission:
   * rvm 1.25.33 
   
 * Added the following gems --
-    * gem 'bson_ext'
-    * gem 'mongo', '2.1.0.beta'
-    * gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
-    
+  * gem 'bson_ext'
+  * gem 'mongo', '2.1.0.beta'
+  * gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* BONUS: Created a page that displays “hello world” at /home
