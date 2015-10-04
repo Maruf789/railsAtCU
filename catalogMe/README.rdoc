@@ -4,11 +4,45 @@ Information about me:
 * Name: Ahmad Maruf
 * UNI: aim2122 
 
-Homework 1 submission:
+___________________________________________________________________________________________________
+|                                     Homework 2 - README                                         |
+---------------------------------------------------------------------------------------------------
+* I have implemented all authentication functionality, including the BONUS password authentication.
+
+* The Schema for the "User" class I have created (updated version from HW 1) is the following (from the "User.rb" file):
+  
+  class User
+  
+  include Mongoid::Document
+  include ActiveModel::SecurePassword
+
+  field :first_name, type: String
+  field :last_name, type: String
+  field :email, type: String
+  field :password_digest, type: String
+  has_secure_password
+  
+  end
+  
+* To add a User to the database, I opened "rails console" and simply typed (for example):
+  u = User.create :first_name => "Ahmad", :last_name => "Maruf", :email => "aim2122@columbia", :password => "123" 
+
+* After adding the User to the database, I can simply run "rails server", and open up the port "http://localhost:3000" and log in using the given email and password (in this case, they're "aim2122@columbia.edu" and "123" respectively). We'll see the app correctly authenticate the email and password and lists all the users. I can "edit", "show", "delete", and even "register" new users from there. When the user is done browsing, he/she can simply logout by clicking the "logout" button.
+
+* The TA suggested upon my submission for Homework 1 that I should fix my directory strurcture and that all the app, config, etc. directories should be at the root. As far as I am concerned, the name of my app is "catalogMe" (instead of Emily's "book-collection"). All the app, config, etc., folders are already at the root of catalogMe. However, the name of the GitHub repository is called "railsAtCU", the collabortors of which are both Emily and Zach. The "catalogMe" app stays inside that "railsAtCU" repository. I have a README.md document for "railsAtCU" and for the specific app "catalogMe", I have a "README.rdoc" file, as suggested by Emily. Therefore, I'm not quite sure how else to structure my directories. I would be happy to restructure it, if you could kindly clarify on that.Thanks!
+
+___________________________________________________________________________________________________
+|                                     Homework 1 - README                                         |
+---------------------------------------------------------------------------------------------------
+
 * Name of app:  CatalogMe
 
-* Meetup.com event info (which I RSVP'd):
-  Hosted by SQL NYC, The NoSQL & NewSQL Database Meetup group, on Tuesday, October 6, I'll be attending a FREE full-day 6-track   NoSQL conference covering Big Data, Mobile, Operations, Architecture and Development with Couchbase! More information can be    found here: www.meetup.com/mysqlnyc/events/224790182/
+* Meetup.com event info (RSVP'd):
+  Hosted by "SQL NYC, The NoSQL & NewSQL Database" Meetup group, 
+  A FREE full-day 6-track NoSQL conference covering
+  "Big Data, Mobile, Operations, Architecture and Development with Couchbase"
+  on Tuesday, October 6. More information can be found here:
+  www.meetup.com/mysqlnyc/events/224790182/
 
 * Name of the Model: "UserCatalog". Schema for this model is the following:
       class UserCatalog

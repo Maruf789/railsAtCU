@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+ 
   resources :users
-  get "signup" => "users#new", :as => "signup"
-  get 'login' => 'session#new'
-  post "login" => "session#create"
-  get "logout" => "session#destroy", :as => "logout"
+  get "signup" => "users#new" #:as => "signup"
+  post 'signup' => 'users#create'
+  post 'users/new' => 'users#create'
+  get 'login' => 'sessions#new'   #they should be "sessions" instead of "session", no?
+  post "login" => "sessions#create"  #changed "session" to "sessions"
+  delete 'logout' => 'sessions#destroy', :as => "logout"  #changed "session" to "sessions"
 
  # get 'home/index'
 
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'session#new'
+  root 'sessions#new'  #changed "session" to "sessions"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
