@@ -33,7 +33,7 @@ Each child class ("Car" and "Bike") will inherit these attributes/fields. This a
       embedded_in :moveable, polymorphic: true
     end
 
-As we can notice from above models, the parent class Vehicle embeds many vehicles (from zero to many). These vehicles could be either cars or bikes or both. The Car and Bike are both embedded in the Vehicle, and hence, they're polymorphic. A polymorphic embedded_in declaration can be seen as setting up an interface that any other model can use. From an instance of the Vehicle model, we can retrieve a collection of cars or bikes.
+As we can notice from above models, the parent class Vehicle embeds many vehicles (from zero to many). These vehicles could be either cars or bikes or both. The Car and Bike are both embedded in the interface "moveable", and hence, they're polymorphic. A polymorphic embedded_in declaration can be seen as setting up an interface that any other model can use. From an instance of the Vehicle model, we can retrieve a collection of cars or bikes.
 
 3) Using "rails console" I have created some objects and their associated objects and saved them to the Mongodb databse (I know it's a bit confusing but I named my database "mongoid" in the mongoid.yml file; so when you open up mongo console, please type in "use mongoid"). Here's a run down on my rails console (I'm saving some sample objects here):
 
