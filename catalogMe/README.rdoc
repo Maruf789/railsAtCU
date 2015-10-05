@@ -4,6 +4,109 @@ Information about me:
 * Name: Ahmad Maruf
 * UNI: aim2122 
 
+
+---------------------------------------------------------------------------------------------------
+                                     Homework 3 - README                                         
+---------------------------------------------------------------------------------------------------
+1) I have design (rather redisgned) a schema for my app, "catalogMe" (with the bonus Polymorphic associations). Now I have three models in my app. The previous "User" class is replaced with "Vehicle" as the parent class. The other two child classes are "Car" and "Bike". The Vehicle class has the following attributes:
+      manufacturer, model, speed, and price
+Each child class ("Car" and "Bike") will inherit these attributes/fields. This app basically lists vehicles, which are of two types-- cars and bikes. 
+
+2) Using rails scaffolding, I created 3 models, corresponding controller and views, manually edited the associations among them. The polymorphic associations among them are as follows:
+    class Vehicle
+      include Mongoid::Document
+      embeds_many :vehicles, as: :moveable  
+
+      field :manufacturer, type: String
+      field :model, type: String
+      field :speed, type: Integer
+      field :price, type: Float
+    end
+
+    class Car < Vehicle
+      include Mongoid::Document
+      embedded_in :moveable, polymorphic: true
+    end
+    
+    class Bike < Vehicle
+      include Mongoid::Document
+      embedded_in :moveable, polymorphic: true
+    end
+
+As we can notice from above models, the parent class Vehicle embeds many vehicles (from zero to many). These vehicles could be either cars or bikes or both. The Car and Bike are both embedded in the Vehicle, and hence, they're polymorphic. A polymorphic embedded_in declaration can be seen as setting up an interface that any other model can use. From an instance of the Vehicle model, we can retrieve a collection of cars or bikes.
+
+3) Using "rails console" I have created some objects and their associated objects and saved them to the Mongodb databse (I know it's a bit confusing but I named my database "mongoid" in the mongoid.yml file; so when you open up mongo console, please type in "use mongoid"). Here's a run down on my rails console (I'm saving some sample objects here):
+
+  > rails console
+  >
+  > a = Vehicle.new
+  > a.save!
+  > a.vehicles.create({manufacturer: "Tesla",model: "Model X", speed: 250, price: 75000}, Car)
+  >
+  > b = Vehicle.new
+  > b.save!
+  > b.vehicles.create({manufacturer: "Lamborghini",model: "Huracan LP 610-4 Spyder", speed: 201, price: 209551.15}, Car)
+  > b.vehicles.create({manufacturer: "Jetson",model: "Mountain EBike - Red", speed: 18, price: 1999.99}, Bike)
+  >
+  > vehicle3 = Vehicle.new
+  > vehicle3.save!
+  > vehicle3.vehicles.create({manufacturer: "Schwinn",model: "Men's Phocus 1600 Road Bike", speed: 1, price: 449.99}, Bike)
+
+Now once these objects successfully get saved, I can open up mongo console by typing "mongo", and I can easily list all the objects I have just created. A sample run is as follows:
+      > mongo
+      > db.vehicles.find().pretty()
+      {
+        "_id" : ObjectId("5612138fa9d31754ec000001"),
+        "_type" : "Vehicle",
+        "vehicles" : [
+          {
+            "_id" : ObjectId("5612139da9d31754ec000002"),
+            "_type" : "Car",
+            "manufacturer" : "Tesla",
+            "model" : "Model X",
+            "speed" : 250,
+            "price" : 75000
+          }
+        ]
+      }
+      {
+        "_id" : ObjectId("56121fbba9d3175c7f000001"),
+        "_type" : "Vehicle",
+        "vehicles" : [
+          {
+            "_id" : ObjectId("56121fc8a9d3175c7f000002"),
+            "_type" : "Car",
+            "manufacturer" : "Lamborghini",
+            "model" : "Huracan LP 610-4 Spyder",
+            "speed" : 201,
+            "price" : 209551.15
+          },
+          {
+            "_id" : ObjectId("56122582a9d3175c7f000006"),
+            "_type" : "Bike",
+            "manufacturer" : "Jetson",
+            "model" : "Mountain EBike - Red",
+            "speed" : 18,
+            "price" : 1999.99
+          }
+        ]
+      }
+      {
+        "_id" : ObjectId("5612252ba9d3175c7f000005"),
+        "_type" : "Vehicle",
+        "vehicles" : [
+          {
+            "_id" : ObjectId("561225b6a9d3175c7f000007"),
+            "_type" : "Bike",
+            "manufacturer" : "Schwinn",
+            "model" : "Men's Phocus 1600 Road Bike",
+            "speed" : 1,
+            "price" : 449.99
+          }
+        ]
+      }
+
+
 ---------------------------------------------------------------------------------------------------
                                      Homework 2 - README                                         
 ---------------------------------------------------------------------------------------------------
