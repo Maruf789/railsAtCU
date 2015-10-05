@@ -8,11 +8,11 @@ Information about me:
 ---------------------------------------------------------------------------------------------------
                                      Homework 3 - README                                         
 ---------------------------------------------------------------------------------------------------
-1) I have design (rather redisgned) a schema for my app, "catalogMe" (with the bonus Polymorphic associations). Now I have three models in my app. The previous "User" class is replaced with "Vehicle" as the parent class. The other two child classes are "Car" and "Bike". The Vehicle class has the following attributes:
+1) I have designed (rather redisgned) a schema for my app, "catalogMe" (including the bonus polymorphic associations part). Now I have three models in my app. Also, the previous "User" class is replaced with "Vehicle" as the parent class. The other two child classes are "Car" and "Bike". The Vehicle class has the following attributes:
       manufacturer, model, speed, and price
-Each child class ("Car" and "Bike") will inherit these attributes/fields. This app basically lists vehicles, which are of two types-- cars and bikes. 
+Each child class ("Car" and "Bike") will inherit these attributes/fields. This app basically lists vehicles, which could be of only two types-- cars and bikes. 
 
-2) Using rails scaffolding, I created 3 models, corresponding controller and views, manually edited the associations among them. The polymorphic associations among them are as follows:
+2) Using rails scaffolding, I created 3 models, corresponding controller & views, and manually edited the [polymorphic] associations among them. The associations among them are as follows:
     class Vehicle
       include Mongoid::Document
       embeds_many :vehicles, as: :moveable  
