@@ -6,6 +6,20 @@ Information about me:
 
 
 ---------------------------------------------------------------------------------------------------
+                                     Homework 4 - README                                         
+---------------------------------------------------------------------------------------------------
+1) I downloaded the CSV (exported) fie named "For_Hire_Vehicles__FHV__-_Active_Drivers.csv" from the given website.(Although the data gets updated every day, here's the link:  https://data.cityofnewyork.us/Transportation/For-Hire-Vehicles-FHV-Active-Drivers/xjfq-wh2d). I renamed the file to "ForHireVehicles.csv", reduced the rows to about 35 lines, and placed the CSV file in the root directory of my app. However, I added the original "For_Hire_Vehicles_FHV__Active_and_Inactive_Vehicles.csv" file in the "db/" directory, just in case one would want to take a look at it.
+
+2) Using "rails generate model User" (NOT scaffolding), I manually created a new class called "User". Then I edited the "user.rb" file and added the fields corresponding all the columns in the CSV.
+
+3) Create rake task in the file called "import_csv.rake" in the "lib/tasks/" directory. I named my namespace as "import_csv" and task name as "import_csv_vehicles"
+
+4) When I run "rake import_csv:import_csv_vehicles" in the console, tt workes perfectly, importing all the rows from the CSV and loading them in the database. Each line in the CSV corresponds to one item in the database.
+
+5) Removed heading and trailing whitespaces from strings.
+
+
+---------------------------------------------------------------------------------------------------
                                      Homework 3 - README                                         
 ---------------------------------------------------------------------------------------------------
 1) I have designed (rather redisgned) a schema for my app, "catalogMe" (including the bonus polymorphic associations part). Now I have three models in my app. Also, the previous "User" class is replaced with "Vehicle" as the parent class. The other two child classes are "Car" and "Bike". The Vehicle class has the following attributes:
