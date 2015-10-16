@@ -8,11 +8,20 @@ Rails.application.routes.draw do
 
  # get 'home/index'
 
-  resources :user_catalogs
+  resources :users
+  get "signup" => "users#new", :as => "signup"
+  post 'signup' => "users#create"
+  post 'users/new' => 'users#create'
+  delete 'delete' => 'users#destroy', :as => "delete"
+  get 'login' => 'sessions#new'   
+  post "login" => "sessions#create"  
+  delete 'logout' => 'sessions#destroy', :as => "logout"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  root 'sessions#new'
   # root '' #changed "session" to "sessions"
 
   # Example of regular route:

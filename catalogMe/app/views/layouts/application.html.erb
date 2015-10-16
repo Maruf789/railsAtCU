@@ -9,8 +9,13 @@
 <body>
 
 
+<% if current_user %>    
+  	 <%= render 'navbar' %>
+<% end %>
 
 <%= yield %>
+
+<%= render 'footer' %>
 
 </body>
 </html>

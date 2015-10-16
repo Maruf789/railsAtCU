@@ -1,0 +1,24 @@
+<div class="login">
+	<div class="container">
+		<div class="form">
+
+<h1> log in </h1>
+<%= form_for :session, :url => login_path, :method => :post do |f| %>
+
+  <%= f.email_field :email, :placeholder => "Email" %> 
+  <%= f.password_field :password, :placeholder => "Password" %> 
+
+
+    <br/>
+    <%= f.submit "Submit", class: "btn-submit" %>
+    <br/>
+    <br/>
+    <!--%= link_to 'Sign Up', new_user_path, class: "btn-submit" %-->
+
+    <!--/div-->
+<% end %>
+
+
+    	</div>
+	</div>
+</div>

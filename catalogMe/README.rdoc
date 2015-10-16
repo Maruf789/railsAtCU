@@ -4,6 +4,57 @@ Information about me:
 * Name: Ahmad Maruf
 * UNI: aim2122 
 
+---------------------------------------------------------------------------------------------------
+                                     Homework 5 - README                                         
+---------------------------------------------------------------------------------------------------
+1) We were assigned to add at least 3 validations to my models (3 all in one model or 3 total across multiple models). I have added more than 4 validations for the model called "User" (see "/controllers/models/User.rb"). Some of the validations I've used are "validates", "validates_presence_of ", "validates_numericality_of", etc. I've also created a callback using "before_validation", which is supposed to function properly and may be counted as an extra addition to the existing validations. 
+
+2) I have created two partials-- "navbar" ("/layouts/_navbar.html.erb") and "footer" ("/layouts/_footer.html.erb"). 
+    a)  In the partial named 'navbar', I've put logic that only shows the links that are appropriate, such as greetings using the user's first name, "login", "logout" (if already logged in), and "sign up".
+
+    b) In the partial named 'footer', I have included an image of my App Logo, copyright info, and year. The path for the image is "/assets/images/logo.png" 
+
+Sample Rundown:
+
+1) First, I'm going to open "rails console" and create some User objects. The first two User objects are good instances, which means, they follow the validations (User.valid? "true"). The third instance will have incorrect field(s). And the fourth instance of User will have missing field(s) When I will try to save them, for the second and third instances the validation will be false, so rails will complain and display respective error messages. 
+
+  > rails console
+  > u = User.create :first_name => "Ahmad", :last_name => "Maruf", :email => "aim2122@columbia.edu", :age => 23, :password => "123"
+    => #<User _id: 5620bb9a1081c12a0c000009, first_name: "Ahmad", last_name: "Maruf", email: "aim2122@columbia.edu", age: 23, password_digest: "$2a$10$bwx7rFLTO4gTUe2Ij.qcMeKlJ3im427QWXkURHhoBwtfpr/5wUK0y">
+  > u.valid?
+    => true 
+  > 
+  > m = User.create :first_name => "Noam", :last_name => "Chomsky", :email => "nc@mit.edu", :age => 86, :password => "abc"
+  > u.valid?
+    => true
+  >
+  > v = User.new
+    => #<User _id: 5620bdcf1081c12a0c00000a, first_name: nil, last_name: nil, email: nil, age: nil, password_digest: nil>
+  > v.first_name = "Bernie"
+  > v.last_name = "Sanders"
+  > v.email = "feelthebern@whitehouse.gov" 
+  > v.age = ""
+  > v.password = "12"
+  > v.save
+    => false 
+  > v.valid?
+    => false 
+  > v.errors
+     => #<ActiveModel::Errors:0x007fd3dcbedbd0 @base=#<User _id: 5620bdcf1081c12a0c00000a, first_name: "Bernie", last_name: "Sanders", email: "feelthebern@whitehouse.gov", age: nil, password_digest: "$2a$10$AiRKlRo2aPFkjnwLwimt4OydtbJcDErX1KFpaISt5LfnkojSU0iSi">, @messages={:age=>["can't be blank", "You must provide an age."], :password=>["is too short (minimum is 3 characters)"]}>
+  > 
+  > t = User.new
+  > t.last_name = "Trump"
+  > t.age = 69
+  > t.save
+     => false 
+  > t.valid?
+    => false 
+  > t.errors
+   => #<ActiveModel::Errors:0x007fd3dff9f938 @base=#<User _id: 5620bebb1081c12a0c00000b, first_name: nil, last_name: "Trump", email: nil, age: 69, password_digest: nil>, @messages={:password=>["can't be blank", "is too short (minimum is 3 characters)"], :first_name=>["can't be blank", "You must provide your first name."], :email=>["can't be blank", "is invalid", "You must provide an email."]}>
+
+2) Once you run "mongod" and "rails s" in the terminal, you can opon "localhost:3000" and easily the footer visible there along with the "log in" header.  Now, you can go ahead and log in using the credentials of the first two User objects we created earlier, namely with the email/password combinations of either  "aim2122@columbia.edu" and "123"  OR "nc@mit.edu" and "abc". As soon as you log in, for each additional page you browse (the redirected pages based on the user actions/controller verbs), you'll notice the respective logically appropriate "navbar" [header] and the "footer" in each page.
+
+
 
 ---------------------------------------------------------------------------------------------------
                                      Homework 4 - README                                         
