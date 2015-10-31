@@ -20,19 +20,17 @@ MUST FEATURES
 ADDITIONAL FEATURES
 --------------------
 
-4. Deployed this app to heroku. Here's the website: 
+4. Used Twitter Bootstrap (3.3) to make your app look nice.
 
-5. Used Twitter Bootstrap (3.3) to make your app look nice.
-
-6. This application provides:
+5. This application provides:
 
 		- Navigation bar
 		- Sign up (Create account)
 		- Login
 	
-7. This app uses "devise" gem, which allows users to edit their user profile, for example, change their passwords, email address, name, etc. A user can also delete/cancel his/her account anytime (by clicking the "Edit Account" tab in the navigation bar). 
+6. This app uses "devise" gem, which allows users to edit their user profile, for example, change their passwords, email address, name, etc. A user can also delete/cancel his/her account anytime (by clicking the "Edit Account" tab in the navigation bar). 
 
-8. 	The “Forgot password?” feature allows a user to be emailed a reset password link to his/her email if he/she forgets his/her password.
+7. 	The “Forgot password?” feature allows a user to be emailed a reset password link to his/her email if he/she forgets his/her password.
 
 9.  The “Remember me” feature uses cookies to allow a user to stay logged in.
 
@@ -45,14 +43,14 @@ ADDITIONAL FEATURES
 		- an ordinary user can’t see (or edit) another user’s profile
 		- an ordinary user can see (and edit) their own user profile
 
+11. I have tried my best to deploy this app in heroku (using MongoLab), but seem to have failed after hours of attempts due to some unknown error, because the app crashes on Heroku showing an "Application Error". :( Nevertheless, here's my heroku website for this app: https://kickass-final-project.herokuapp.com/, just in case the app website gets running before you grade. :)
+
 
 SAMPLE RUN 
 --------------
-- Go to the heroku website (given above) and use the admin log in info below.
+-  If you clone/fork this app to your local computer, running "rake db:seed" will load the admin log in info to the database, so you can log in as an admin. Don't forget to run 'mongod', 'rails s', and go to "localhost:3000'.
 - Admin log in info: (to see the full features of role-based authorization)
 	
 		Email: rails@columbia.edu
 		Password: abc12345
-
-- Alternatively, if you fork this app to your localhost, running "rake db:seed" will load the admin log in info to the database, so you can log in as an admin. Run 'mongod', 'rails s', and go to "localhost:3000'.
 - Also, you can always sign up as an ordinary user, if ou don't want to use it as an admin.
