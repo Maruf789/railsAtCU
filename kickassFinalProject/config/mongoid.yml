@@ -1,0 +1,67 @@
+development:
+  #adapter: mongo
+  # Configure available database sessions. (required)
+  clients:
+    # Defines the default session. (required)
+    default:
+      # Defines the name of the default database that Mongoid can connect to.
+      # (required).
+      database: mongoid_dev
+      # Provides the hosts the default session can connect to. Must be an array
+      # of host:port pairs. (required)
+      hosts:
+        - localhost:27017
+      options:
+        # Change whether the session persists in safe mode by default.
+        # (default: false)
+        # safe: false
+
+        # Change the default consistency model to :eventual or :strong.
+        # :eventual will send reads to secondaries, :strong sends everything
+        # to master. (default: :eventual)
+        # consistency: :eventual
+
+        # How many times Moped should attempt to retry an operation after
+        # failure. (default: 30)
+        # max_retries: 30
+
+        # The time in seconds that Moped should wait before retrying an
+        # operation on failure. (default: 1)
+        # retry_interval: 1
+  # Configure Mongoid specific options. (optional)
+  options:
+    #
+test:
+  #adapter: mongo
+  clients:
+    default:
+      database: mongoid_test
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+        # In the test environment we lower the retries and retry interval to
+        # low amounts for fast failures.
+        max_retries: 1
+        retry_interval: 0
+        read:
+          mode: primary
+        max_pool_size: 1
+
+production:
+  #adapter: mongo
+  clients:
+    default:
+      database: mongoid_prod
+      hosts:
+        - localhost:27017
+
+<% if ENV['MONGOHQ_URL'] %>
+  production:
+    sessions:
+      default:
+        uri: <%= ENV['MONGOHQ_URL'] %>
+        options:
+          skip_version_check: true
+          safe: true
+<% end %>
