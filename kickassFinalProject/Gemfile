@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'simple_enum', '~> 2.0.0' , require: 'simple_enum/mongoid'
 gem 'bson_ext'
 gem 'mongo'
+gem 'heroku'
 
 
 group :development, :test do
@@ -27,6 +28,9 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+end
+group :production do
+  gem 'unicorn'
 end
 group :development, :test do
   gem 'factory_girl_rails'
