@@ -36,22 +36,23 @@ ADDITIONAL FEATURES
 
 9.  The “Remember me” feature uses cookies to allow a user to stay logged in.
 
-10. This app uses 'simple_enum' gem, which adds role-based authorization and allows admin to limit access to pages based on user role. With this application: 
+10. This app uses 'simple_enum' gem, which adds role-based authorization and allows admin to limit access to pages based on user role. With this app: 
 
 		- an admin can see a list of users
-		- an admin can change a user’s role
+		- an admin can change a user’s role [There are basically three roles: 1) Admin, 2) VIP, 3) User (ordinary)]
 		- an ordinary user can’t see a list of users
 		- an ordinary user can’t change their role
 		- an ordinary user can’t see (or edit) another user’s profile
 		- an ordinary user can see (and edit) their own user profile
 
 
-Documentation 
+SAMPLE RUN 
 --------------
-
-Admin log in info: (to see the full features of role-based authorization)
+- Go to the heroku website (given above) and use the admin log in info below.
+- Admin log in info: (to see the full features of role-based authorization)
 	
 		Email: rails@columbia.edu
 		Password: abc12345
 
-Alternatively, if you fork this app to your localhost, running "rake db:seed" will load the admin log in info to the database, so you can log in as an admin. Or you can sign up as an ordinary user.
+- Alternatively, if you fork this app to your localhost, running "rake db:seed" will load the admin log in info to the database, so you can log in as an admin. Run 'mongod', 'rails s', and go to "localhost:3000'.
+- Also, you can always sign up as an ordinary user, if ou don't want to use it as an admin.
