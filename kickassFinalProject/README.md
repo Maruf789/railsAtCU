@@ -49,7 +49,7 @@ ADDITIONAL FEATURES
 Documentation 
 --------------
 
-# Admin log in info: (to see the full features of role-based authorization)
+Admin log in info: (to see the full features of role-based authorization)
 	
 		Email: rails@columbia.edu
 		Password: abc12345
